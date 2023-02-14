@@ -1,5 +1,5 @@
 <template>
-    <order class="order">
+    <div class="order">
         <div class="order-header-sort">
             <span class="order-header-sort-text">
                 Локация : {{ city }}
@@ -15,9 +15,10 @@
             <order-cmp v-for="( order, orderIndex ) in mockOrdersData" 
                 :key="orderIndex" 
                 :orderData="order"
+                @emit-select-value="emitSelectValue"
             />
         </div>
-    </order>
+    </div>
 </template>
 
 <script lang="ts">
@@ -37,10 +38,16 @@ import { mockOrdersData } from '@/assets/mockData/mockOrders'
         setup() {
             let city = ref<string>( 'Ялта' )
 
+            const emitSelectValue = ( data: string ) => {
+                console.log( data );
+                
+            }
+
             return {
                 city,
                 selectDataSort,
-                mockOrdersData
+                mockOrdersData,
+                emitSelectValue
             }
         }
     }

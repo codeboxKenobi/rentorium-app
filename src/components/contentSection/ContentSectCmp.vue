@@ -1,8 +1,8 @@
 <template>
-    <content class="content">
+    <div class="content">
         <order-sub-sect-cmp />
         <map-sub-sect-cmp />
-    </content>
+    </div>
 </template>
 
 <script lang="ts">

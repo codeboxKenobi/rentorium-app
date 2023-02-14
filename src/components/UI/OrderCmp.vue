@@ -1,5 +1,5 @@
 <template>
-    <order class="order-item">
+    <div class="order-item">
         <div class="order-item-image">
             <img class="order-item-image-el" 
                 src="@/assets/img/mockImage/home-img.jpg" 
@@ -13,7 +13,7 @@
         <div class="order-item-description-buttons">
             <button-cmp :loading="false" btnName="Подробнее" />
         </div>
-    </order>
+    </div>
 </template>
 
 <script lang="ts">
@@ -30,7 +30,7 @@ import ButtonCmp from './ButtonCmp.vue';
             orderData: { tupe: Object, default: () => { return {} } }
         },
         
-        setup( props: object ) {
+        setup() {
 
             return {
                 

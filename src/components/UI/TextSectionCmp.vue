@@ -1,9 +1,9 @@
 <template>
-    <text-section class="text-section">
+    <div class="text-section">
         <span class="text-section-field">
             {{ name }} : {{ description }}
         </span>
-    </text-section>
+    </div>
 </template>
 
 <script lang="ts">
@@ -11,7 +11,7 @@
     export default {
         props: {
             name: { type: String, default: 'name' },
-            description: { type: String, default: 'description' },
+            description: { type: [ String, Number ], default: 'description' },
             size: { type: String, default: '12px' },
             textColors: { type: String, default: '$main-hover' }
         },

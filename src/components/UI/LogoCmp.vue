@@ -1,11 +1,11 @@
 <template>
     <a class="logo-ref" href="/">
-        <logo class="logo">
+        <div class="logo">
             <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
             <span class="logo-text">rent</span>
             <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
             <span class="logo-text">rium</span>
-        </logo>
+        </div>
     </a>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <order-descript class="order-descript">
+    <div class="order-descript">
         <div class="order-descript-head">
             <span class="order-descript-head-price">
                 {{ orderData.order_price }} &#8381; 
@@ -20,7 +20,7 @@
                 :description="orderData[ field.description ]" />
         </div>
 
-    </order-descript>
+    </div>
 </template>
 
 <script lang="ts">
