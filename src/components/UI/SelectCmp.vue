@@ -80,6 +80,8 @@ import { ref, computed } from 'vue'
     }
 
     &-options {
+        overflow-y: scroll;
+        max-height: 300px;
         z-index: 20;
         @include flexCol( flex-start, flex-start );
         min-width: 120px;
@@ -89,7 +91,7 @@ import { ref, computed } from 'vue'
         border-radius: $main-border-radius;
         outline: none;
         color: $main-color;
-        // background-color: $main-white;
+        background-color: $main-white;
         cursor: pointer;
 
         &:hover {
@@ -100,8 +102,8 @@ import { ref, computed } from 'vue'
 
         &-field {
             @include flexRow( flex-start, center );
-            @include font( 10px );
-            height: 30px;
+            @include font( 14px );
+            min-height: 30px;
             width: calc( 100% - 20px );
             padding: 0px 10px;
             margin: 0px 0px;

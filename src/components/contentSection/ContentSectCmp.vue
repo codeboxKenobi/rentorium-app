@@ -26,6 +26,5 @@ import MapSubSectCmp from '../contentSection/mapSubSection/MapSubSectCmp.vue'
     height: calc( 100vh - 125px );
     width: 100%;
     margin-top: 4px;
-    // background-color: $main-color;
 }
 </style>

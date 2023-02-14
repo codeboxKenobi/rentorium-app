@@ -20,5 +20,6 @@
     width: 99%;
     margin-top: 4px;
     border-bottom: $main-border1;
+    
 }
 </style>

@@ -12,27 +12,35 @@
 }
 
 @mixin font( $size ) {
+    font-size: $size;
+    // letter-spacing: 1px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-$main-color: #0f325ee6;
-$main-white: #e7e8e9;
+@mixin btn( $size ) {
+    @include flexRow( center, center );
+    @include font( 13px );
+    height: 34px;
+    margin: 0px 4px;
+    width: calc( 10px * $size );
+    border: $main-border1;
+    border-radius: $main-border-radius;
+    outline: none;
+    color: $main-color;
+    background-color: $main-hover;
+}
+
+$main-color: #061a33e6;
+$main-white: #ffffff;
 $main-line-color: #a0b1c9e6;
-$main-line-hover-color: #181b1fe6;
+$main-line-hover-color: #0c2950e6;
+$main-hover: #517dac80;
+$main-op-text: #07213d80;
+$main-red: #bb0e0e;
 
 $main-border1: 1px solid $main-line-color;
 $main-border1-hover: 1px solid $main-line-hover-color;
 $main-border-radius: 4px;
+$main-shadow: 0px 0px 2px 1px $main-hover;
 
 
-// $main-wrapper: #071c3d99;
-// $main-flatdrop: #4680b6;
-// $main-red: #910a0a;
-// $main-green: #065806;
-// $main-white: #fdfdfd;
-$main-hover: #517dac80;
-// $main-backdrop: #a3b9cc80;
-// $main-border: 2px solid $main-color;
-// $main-border-tr: 2px solid transparent;
-// $main-border-radius: 4px;
-$main-shadow: 0px 0px 1px 1px $main-hover;

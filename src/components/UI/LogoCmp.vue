@@ -1,10 +1,12 @@
 <template>
-    <logo class="logo">
-        <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
-        <span class="logo-text">rent</span>
-        <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
-        <span class="logo-text">rium</span>
-    </logo>
+    <a class="logo-ref" href="/">
+        <logo class="logo">
+            <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
+            <span class="logo-text">rent</span>
+            <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
+            <span class="logo-text">rium</span>
+        </logo>
+    </a>
 </template>
 
 <script lang="ts">
@@ -14,6 +16,9 @@
 <style lang="scss" scoped>
 @import '~/src/assets/styles/custom.scss';
 
+.logo-ref {
+    text-decoration: none
+}
 .logo {
     @include flexRow( center, center );
     height: 100%;

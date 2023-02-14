@@ -11,42 +11,36 @@
                 />
             </div>
         </div>
+        <div class="order-section">
+            <order-cmp v-for="( order, orderIndex ) in mockOrdersData" 
+                :key="orderIndex" 
+                :orderData="order"
+            />
+        </div>
     </order>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue'
+
 import SelectCmp from '@/components/UI/SelectCmp.vue'
-
+import OrderCmp from '@/components/UI/OrderCmp.vue'
 import { selectDataSort } from '@/assets/static/orderSubSelect'
-
-    interface SelectDta {
-        name: string,
-        fieldData: string[]
-    }
+import { mockOrdersData } from '@/assets/mockData/mockOrders'
 
     export default {
         components: {
-            SelectCmp
+            SelectCmp,
+            OrderCmp
         },
 
         setup() {
             let city = ref<string>( 'Ялта' )
 
-            const selectData: SelectDta = {
-                name: 'Select',
-                fieldData: [
-                    '',
-                    '',
-                    '',
-                    ''
-                ]
-            }
-
             return {
                 city,
-                selectData,
-                selectDataSort
+                selectDataSort,
+                mockOrdersData
             }
         }
     }
@@ -60,17 +54,16 @@ import { selectDataSort } from '@/assets/static/orderSubSelect'
     height: 100%;
     width: 59%;
     margin-right: 10px;
-    // border: $main-border1;
 
     &-header-sort {
         @include flexRow( space-between, flex-start );
         max-height: 32px;
         width: 98%;
-        margin-top: 9px;
+        margin-top: 6px;
 
         &-text {
             @include flexRow( flex-start, center );
-            @include font( 20px );
+            @include font( 16px );
             height: 100%;
             color: $main-color;
         }
@@ -79,5 +72,24 @@ import { selectDataSort } from '@/assets/static/orderSubSelect'
             @include flexRow( space-between, center );
         }
     }
+
+    &-section {
+        @include flexRow( space-between, flex-start );
+        flex-wrap: wrap;
+        overflow-y: scroll;
+        height: 100%;
+        width: 99%;
+        margin: 4px 5px 2px 0px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 2px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        width: 2x;
+        background-color: $main-color
+    }
+
 }
 </style>
