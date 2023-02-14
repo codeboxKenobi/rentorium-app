@@ -25,7 +25,7 @@
     width: 180px;
 
     &-text {
-        @include font( 16px );
+        @include font2( 16px );
         color: $main-white;
     }
 

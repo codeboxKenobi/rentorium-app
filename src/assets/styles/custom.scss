@@ -11,6 +11,18 @@
     align-items: $ai;
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('~/src/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@mixin font2( $size ) {
+    font-family: Montserrat;
+    font-size: $size;
+}
+
 @mixin font( $size ) {
     font-size: $size;
     // letter-spacing: 1px;

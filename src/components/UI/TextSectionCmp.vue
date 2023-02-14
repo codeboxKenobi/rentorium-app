@@ -32,19 +32,23 @@
 
 .text-section {
     @include flexRow( flex-start, flex-start );
-    min-height: 20px;
+    min-height: 30px;
     width: 100%;
     margin: 5px 0px;
 
     &-field {
         @include flexRow( flex-start, flex-start );
-        @include font( v-bind( size ) );
+        @include font2( v-bind( size ) );
         word-break: break-word;
         max-width: 100%;
         margin: 0px 10px;
         padding: 4px 0px;
         border-bottom: $main-border1;
         color: v-bind( textColors );
+
+        @media screen and ( max-width: 1440px ) {
+            @include font2( 12px );
+        }
     }
 }
 </style>

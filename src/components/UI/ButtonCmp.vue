@@ -51,7 +51,7 @@ export default {
 
 .button-cmp {
     @include flexRow( center, center );
-    @include font( 11px );
+    @include font2( 11px );
     height: 30px;
     margin: 0px 4px;
     padding: 4px 0px;

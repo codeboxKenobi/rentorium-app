@@ -62,7 +62,7 @@ import { ref, computed } from 'vue'
 
 .select-cmp {
     @include flexRow( flex-start, center );
-    @include font( 12px );
+    @include font2( 12px );
     height: 30px;
     min-width: 100px;
     width: calc( 15px * v-bind( selectSize ));
@@ -102,7 +102,7 @@ import { ref, computed } from 'vue'
 
         &-field {
             @include flexRow( flex-start, center );
-            @include font( 14px );
+            @include font2( 14px );
             min-height: 30px;
             width: calc( 100% - 20px );
             padding: 0px 10px;

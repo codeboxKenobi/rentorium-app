@@ -63,7 +63,7 @@ import { mockOrdersData } from '@/assets/mockData/mockOrders'
 
         &-text {
             @include flexRow( flex-start, center );
-            @include font( 16px );
+            @include font2( 16px );
             height: 100%;
             color: $main-color;
         }
