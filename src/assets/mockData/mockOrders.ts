@@ -11,7 +11,7 @@ export const mockOrdersData: object[] = [
         order_rooms: 1,
         order_place_type: 'apartment',
         order_type: 'Квартира',
-        order_description: 'Хoрoшая транспoртная развязка, рядoм oстанoвка,магазины, прекрасный вид на мoре и гoры.'
+        order_description: 'Хoрoшая транспoртная развязка, рядoм oстанoвка,магазины, прекрасный вид на мoре и гoры. Хoрoшая транспoртная развязка, рядoм oстанoвка,магазины, прекрасный вид на мoре и гoры.Хoрoшая транспoртная развязка, рядoм oстанoвка,магазины, прекрасный вид на мoре и гoры.'
     },
     {
         order_open_date: new Date(),
@@ -23,7 +23,7 @@ export const mockOrdersData: object[] = [
         order_rooms: 1,
         order_place_type: 'apartment',
         order_type: 'Квартира',
-        order_description: 'Хoрoшая транспoртная развязка, рядoм oстанoвка,магазины, прекрасный вид на мoре и гoры.'
+        order_description: 'Хoрoшая транспoртная развязка.'
     },
     {
         order_open_date: new Date(),
