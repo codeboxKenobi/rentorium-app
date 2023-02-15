@@ -32,14 +32,14 @@
 @mixin btn( $size ) {
     @include flexRow( center, center );
     @include font( 13px );
-    height: 34px;
+    height: 30px;
     margin: 0px 4px;
     width: calc( 10px * $size );
-    border: $main-border1;
+    border: $main-border1-hover;
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
-    background-color: $main-hover;
+    // background-color: $main-hover;
 }
 
 $main-color: #061a33e6;
