@@ -3,6 +3,7 @@ export interface Select{
     fieldData: object
 }
 
+// Параметры фильтра и сортировки ордеров
 export const selectDataSort: Select = {
     name: 'Сортировать по :',
     fieldData: {

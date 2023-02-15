@@ -4,7 +4,7 @@
             <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
             <span class="logo-text">rent</span>
             <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
-            <span class="logo-text">rium</span>
+            <span class="logo-text"></span>
         </div>
     </a>
 </template>
@@ -17,6 +17,9 @@
 @import '~/src/assets/styles/custom.scss';
 
 .logo-ref {
+    @include flexRow( center, center );
+    height: 100%;
+    max-width: 180px;
     text-decoration: none
 }
 .logo {
@@ -31,7 +34,7 @@
 
     &-mag-glass {
         margin-top: 5px;
-        margin-left: 2px;
+        margin-left: 0px;
     }
 }
 </style>
