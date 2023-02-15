@@ -6,10 +6,10 @@
         </div>
         <div class="select-cmp-options" v-if="selectField">
             <span class="select-cmp-options-field"
-                v-for="( field, fieldIndex ) in selectFieldItem" 
+                v-for="( field, fieldIndex ) in Object.entries( selectFieldItem )" 
                     :key="fieldIndex"
-                    @click="selectFieldElem( field as string )"> 
-                    {{ field }} 
+                    @click="selectFieldElem( field[ 1 ], field[ 0 ]  )"> 
+                    {{ field[ 1 ] }} 
             </span>
         </div>
     </div>
@@ -21,7 +21,7 @@ import { ref, computed } from 'vue'
     export default {
         props: {
             selectName: { type: String, default: '' },
-            selectFieldItem: { type: Array, default: () => { return [] } }
+            selectFieldItem: { type: Object, default: () => { return {} } }
         },
 
         emits: [ 'emit-select-value' ],
@@ -36,9 +36,9 @@ import { ref, computed } from 'vue'
                 selectField.value = !selectField.value
             }
 
-            const selectFieldElem = ( fieldName: string ): void => {
+            const selectFieldElem = ( fieldName: string, fieldKey: string ): void => {
                 currentSelectName.value = fieldName
-                emit( 'emit-select-value', currentSelectName.value )
+                emit( 'emit-select-value', fieldKey )
                 bSelectedField()
             }
 

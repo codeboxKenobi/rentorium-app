@@ -7,27 +7,29 @@
             <div class="order-header-sort-select">
                 <select-cmp 
                     :selectName="selectDataSort.name" 
-                    :selectFieldItem="selectDataSort.fieldData" 
+                    :selectFieldItem="selectDataSort.fieldData"
+                    @emit-select-value="emitSelectValue"
                 />
             </div>
         </div>
         <div class="order-section">
-            <order-cmp v-for="( order, orderIndex ) in mockOrdersData" 
+            <order-cmp v-for="( order, orderIndex ) in currentOrdersData" 
                 :key="orderIndex" 
                 :orderData="order"
-                @emit-select-value="emitSelectValue"
             />
         </div>
     </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { ref, reactive, computed } from 'vue'
 
 import SelectCmp from '@/components/UI/SelectCmp.vue'
 import OrderCmp from '@/components/UI/OrderCmp.vue'
 import { selectDataSort } from '@/assets/static/orderSubSelect'
 import { mockOrdersData } from '@/assets/mockData/mockOrders'
+
+import { selectSearch } from '@/assets/utils/orderSelectFilter'
 
     export default {
         components: {
@@ -37,16 +39,18 @@ import { mockOrdersData } from '@/assets/mockData/mockOrders'
 
         setup() {
             let city = ref<string>( 'Ялта' )
-
-            const emitSelectValue = ( data: string ) => {
-                console.log( data );
-                
+            const tmpVal = ref( '' )
+            const emitSelectValue = ( data: string ): void => {
+                tmpVal.value = data
             }
+
+            let currentOrdersData = computed(() => selectSearch( mockOrdersData, tmpVal.value ) )
 
             return {
                 city,
                 selectDataSort,
                 mockOrdersData,
+                currentOrdersData,
                 emitSelectValue
             }
         }
