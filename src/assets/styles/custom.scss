@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
 }
-
+// -------------------------------------- flex
 @mixin flexCol( $jc, $ai ) {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,9 @@
     justify-content: $jc;
     align-items: $ai;
 }
+// -------------------------------------- flex
 
+// -------------------------------------- font
 @font-face {
     font-family: 'Montserrat';
     src: url('~/src/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
@@ -26,7 +28,9 @@
     font-family: Montserrat;
     font-size: $size;
 }
+// -------------------------------------- font
 
+// -------------------------------------- other
 @mixin btn( $size ) {
     @include flexRow( center, center );
     @include font2( 13px );
@@ -38,8 +42,10 @@
     outline: none;
     color: $main-color;
 }
+// -------------------------------------- other
 
-$main-color: #061a33e6;
+// -------------------------------------- color
+$main-color: #233953e6;
 $main-white: #ffffff;
 $main-line-color: #a0b1c9e6;
 $main-line-hover-color: #0c2950e6;
@@ -47,9 +53,15 @@ $main-hover: #517dac80;
 $main-op-text: #07213d80;
 $main-red: #bb0e0e;
 $main-thin: #B0B0B0;
+// -------------------------------------- color
 
+// -------------------------------------- border
 $main-border1: 1px solid $main-line-color;
 $main-border1-hover: 1px solid $main-line-hover-color;
 $main-border-radius: 4px;
+// -------------------------------------- border
+
+// -------------------------------------- custom
 $main-shadow: 0px 0px 2px 1px $main-hover;
+// -------------------------------------- custom
 

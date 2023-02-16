@@ -72,7 +72,7 @@ import ButtonCmp from './ButtonCmp.vue';
     margin: 10px 5px;
     border: $main-border1;
     border-radius: $main-border-radius;
-    box-shadow: $main-shadow;
+    // box-shadow: $main-shadow;
 
     @media screen and ( max-width: 1280px ) {
         width: 100%;
@@ -95,7 +95,8 @@ import ButtonCmp from './ButtonCmp.vue';
 
     &-description {
         @include flexRow( space-between, center );
-        min-height: 44.5%;
+        height: 45%;
+        
         width: 100%;
         border-top: $main-border1;
 
@@ -111,12 +112,13 @@ import ButtonCmp from './ButtonCmp.vue';
 .order-item-bookmark {
     @include flexRow( center, center );
     height: 96%;
-    width: 10%;
+    min-width: 14%;
     padding-right: 1px;
     border: $main-border1;
     border-radius: $main-border-radius;
 
     &-item {
+        cursor: pointer;
         margin: 0px 5px;
     }
 }

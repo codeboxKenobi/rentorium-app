@@ -1,9 +1,9 @@
-// Клон
+// гл. клон
 export const deepClone = ( payload: object ) => {
     return JSON.parse( JSON.stringify( payload ))
 }
 
-
+// utils: календарь
 export default class DateTimeHandler {
     getDayOfYear(date: Date): number {
       const now = date.getTime();

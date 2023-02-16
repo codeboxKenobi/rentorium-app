@@ -60,6 +60,7 @@ export default {
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
+    cursor: pointer;
 
     &:hover {
         border: $main-border1-hover;
