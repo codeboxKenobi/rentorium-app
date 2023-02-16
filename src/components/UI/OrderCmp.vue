@@ -24,6 +24,9 @@
                     @click="addMark"
                 >
             </div>
+            <div class="order-item-status">
+
+            </div>
             <button-cmp :loading="false" btnName="Подробнее" />
         </div>
     </div>
@@ -84,8 +87,9 @@ import ButtonCmp from './ButtonCmp.vue';
         &-el {
             height: 100%;
             width: 100%;
-            background-size: 20%;
-            background-repeat: no-repeat;
+            background-size:contain;
+            // background-repeat: no-repeat;
+            background-position: center
         }
     }
 
@@ -105,12 +109,26 @@ import ButtonCmp from './ButtonCmp.vue';
 }
 
 .order-item-bookmark {
-    @include flexRow( flex-start, center );
+    @include flexRow( center, center );
     height: 96%;
-    width: 70%;
-    margin: 2px 0px;
+    width: 10%;
+    padding-right: 1px;
     border: $main-border1;
     border-radius: $main-border-radius;
+
+    &-item {
+        margin: 0px 5px;
+    }
+}
+
+.order-item-status {
+    @include flexRow( flex-start, center );
+    height: 96%;
+    width: 54%;
+    margin: 2px 2px 2px 5px;
+    border: $main-border1;
+    border-radius: $main-border-radius;
+    // background-color: #995757;
 
     &-item {
         margin: 0px 5px;

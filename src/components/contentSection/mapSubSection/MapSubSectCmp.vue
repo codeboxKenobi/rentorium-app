@@ -1,11 +1,16 @@
 <template>
     <div class="map">
-
+        <datepicker />
     </div>
 </template>
 
 <script lang="ts">
+import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
+
     export default {
+        components: {
+            Datepicker
+        }
         
     }
 </script>
@@ -14,7 +19,7 @@
 @import '~/src/assets/styles/custom.scss';
 
 .map {
-    @include flexRow( flex-start, center );
+    @include flexRow( center, center );
     height: 98%;
     width: 39%;
     margin-top: 4px;

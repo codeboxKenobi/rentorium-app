@@ -80,12 +80,12 @@ import { ref, computed } from 'vue'
     }
 
     &-options {
+        @include flexCol( flex-start, flex-start );
         overflow-y: scroll;
         max-height: 300px;
         z-index: 20;
-        @include flexCol( flex-start, flex-start );
         min-width: 120px;
-        width: calc( 15px * v-bind( selectSize ) + 20px );
+        width: calc( 15px * v-bind( selectSize ) );
         margin: 2px 4px;
         border: $main-border1;
         border-radius: $main-border-radius;
@@ -102,9 +102,9 @@ import { ref, computed } from 'vue'
 
         &-field {
             @include flexRow( flex-start, center );
-            @include font2( 14px );
+            @include font2( 12px );
             min-height: 30px;
-            width: calc( 100% - 20px );
+            width: calc( 100% - 10px );
             padding: 0px 10px;
             margin: 0px 0px;
             outline: none;
@@ -114,6 +114,7 @@ import { ref, computed } from 'vue'
             &:hover {
                 background-color: $main-color;
                 color: $main-white;
+                border-radius: 0px 4px 4px 0px;
             }
         }
     }

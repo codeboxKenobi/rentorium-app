@@ -66,7 +66,7 @@ import { textSizes, textColors, txtSectData } from '@/assets/static/orderDescrip
         margin-top: 5px;
 
         &-price {
-            @include font( 14px );
+            @include font2( 14px );
             color: $main-color;
         }
 

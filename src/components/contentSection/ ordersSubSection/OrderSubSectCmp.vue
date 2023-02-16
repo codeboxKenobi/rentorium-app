@@ -68,9 +68,9 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
 
     &-header-sort {
         @include flexRow( space-between, flex-start );
-        max-height: 32px;
+        max-height: 30px;
         width: 98%;
-        margin-top: 6px;
+        margin-top: 10px;
 
         &-text {
             @include flexRow( flex-start, center );
