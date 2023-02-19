@@ -26,15 +26,10 @@ import SelectCmp from '../UI/SelectCmp.vue';
 
         setup() {
             const store = useStore()
-            const tmpVal = ref( '' )
+
             const emitSelectValue = ( key: string, data: string ): void => {
                 store.commit( 'resetAllOrders' )
-                console.log( key, data );
-                tmpVal.value = data
-
-                const sortedCityOrders = citySelectFilter( deepClone( store.getters.getAllOrders ), tmpVal.value )
-                console.log( sortedCityOrders );
-
+                const sortedCityOrders = citySelectFilter( deepClone( store.getters.getAllOrders ), data )
                 store.commit( 'setAllOrders', sortedCityOrders )
             }
 
