@@ -27,7 +27,11 @@
             <div class="order-item-status">
 
             </div>
-            <button-cmp :loading="false" btnName="Подробнее" />
+            <button-cmp 
+                :loading="loadState" 
+                btnName="Подробнее" 
+                @click-handler="clickHandler"
+            />
         </div>
     </div>
 </template>
@@ -48,14 +52,24 @@ import ButtonCmp from './ButtonCmp.vue';
         },
         
         setup() {
+            const loadState = ref( false )
             const addBookmark = ref( false )
             const addMark = () => {
                 addBookmark.value = !addBookmark.value
             }
 
+            const clickHandler = () => {
+                loadState.value = true
+                setTimeout(() => {
+                    loadState.value = false
+                }, 2000 )
+            }
+
             return {
                 addBookmark,
-                addMark
+                loadState,
+                addMark,
+                clickHandler
             }
         }
     }
@@ -126,7 +140,7 @@ import ButtonCmp from './ButtonCmp.vue';
 .order-item-status {
     @include flexRow( flex-start, center );
     height: 96%;
-    width: 54%;
+    width: 35%;
     margin: 2px 2px 2px 5px;
     border: $main-border1;
     border-radius: $main-border-radius;

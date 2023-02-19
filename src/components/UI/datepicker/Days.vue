@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import DateUtils from "@/assets/utils/utils";
 
 const dateUtils = new DateUtils();
@@ -43,11 +43,11 @@ export default {
     }
   },
   methods: {
-    selectDay(date: any ) {
-      this.$emit("selectDay", date);
+    selectDay( date ) {
+      this.$emit( "selectDay", date );
     },
 
-    isSelected(date: any ) {
+    isSelected( date ) {
       return (
         this.selectedDate.getDate() === date.getDate() &&
         this.selectedDate.getMonth() === date.getMonth() &&

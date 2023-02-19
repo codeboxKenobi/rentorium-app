@@ -23,10 +23,12 @@
 
 <script lang="ts">
 import { ref, reactive, computed } from 'vue'
+import { useStore } from 'vuex'
 
 import SelectCmp from '@/components/UI/SelectCmp.vue'
 import OrderCmp from '@/components/UI/OrderCmp.vue'
 import { selectDataSort } from '@/assets/static/orderSubSelect'
+import { deepClone } from '@/assets/utils/utils'
 import { mockOrdersData } from '@/assets/mockData/mockOrders'
 
 import { selectSearch } from '@/assets/utils/orderSelectFilter'
@@ -38,13 +40,17 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
         },
 
         setup() {
+            const store = useStore()
+            
             let city = ref<string>( 'Ялта' )
             const tmpVal = ref( '' )
             const emitSelectValue = ( data: string ): void => {
                 tmpVal.value = data
             }
 
-            let currentOrdersData = computed(() => selectSearch( mockOrdersData, tmpVal.value ) )
+            let currentOrdersData = computed(() => {
+                return selectSearch( deepClone( store.getters.getAllOrders ), tmpVal.value )
+            } )
 
             return {
                 city,

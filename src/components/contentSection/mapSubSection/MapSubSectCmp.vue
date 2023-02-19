@@ -1,15 +1,15 @@
 <template>
     <div class="map">
-        <!-- <datepicker /> -->
+        <datepicker />
     </div>
 </template>
 
 <script lang="ts">
-// import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
+import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
 
     export default {
         components: {
-            // Datepicker
+            Datepicker
         }
         
     }

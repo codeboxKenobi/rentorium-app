@@ -1,14 +1,14 @@
 <template>
-    <div class="select-wrapper">
-        <div class="select-cmp"
-            @click="bSelectedField" >
-            <span>{{ currentSelectName }}</span>
+    <div class="date-wrapper">
+        <div class="date-cmp"
+            @click="bdatedField" >
+            <span>{{ currentdateName }}</span>
         </div>
-        <div class="select-cmp-options" v-if="selectField">
-            <span class="select-cmp-options-field"
-                v-for="( field, fieldIndex ) in Object.entries( selectFieldItem )" 
+        <div class="date-cmp-options" v-if="dateField">
+            <span class="date-cmp-options-field"
+                v-for="( field, fieldIndex ) in Object.entries( dateFieldItem )" 
                     :key="fieldIndex"
-                    @click="selectFieldElem( field[ 1 ], field[ 0 ]  )"> 
+                    @click="dateFieldElem( field[ 1 ], field[ 0 ]  )"> 
                     {{ field[ 1 ] }} 
             </span>
         </div>
@@ -20,34 +20,34 @@ import { ref, computed } from 'vue'
 
     export default {
         props: {
-            selectName: { type: String, default: '' },
-            selectFieldItem: { type: Object, default: () => { return {} } }
+            dateName: { type: String, default: '' },
+            dateFieldItem: { type: Object, default: () => { return {} } }
         },
 
-        emits: [ 'emit-select-value' ],
+        emits: [ 'emit-date-value' ],
 
         setup( props: any, { emit }: any ) {
             
-            const selectSize = computed(() => props.selectName.split('').length )
-            const selectField = ref<boolean>( false )
-            const currentSelectName = ref<string>( props.selectName )
+            const dateSize = computed(() => props.dateName.split('').length )
+            const dateField = ref<boolean>( false )
+            const currentdateName = ref<string>( props.dateName )
 
-            const bSelectedField = (): void => {
-                selectField.value = !selectField.value
+            const bdatedField = (): void => {
+                dateField.value = !dateField.value
             }
 
-            const selectFieldElem = ( fieldName: string, fieldKey: string ): void => {
-                currentSelectName.value = fieldName
-                emit( 'emit-select-value', fieldKey, fieldName )
-                bSelectedField()
+            const dateFieldElem = ( fieldName: string, fieldKey: string ): void => {
+                currentdateName.value = fieldName
+                emit( 'emit-date-value', fieldKey )
+                bdatedField()
             }
 
             return {
-                selectSize,
-                selectField,
-                currentSelectName,
-                bSelectedField,
-                selectFieldElem
+                dateSize,
+                dateField,
+                currentdateName,
+                bdatedField,
+                dateFieldElem
             }
         }
     }
@@ -56,16 +56,16 @@ import { ref, computed } from 'vue'
 <style lang="scss" scoped>
 @import '~/src/assets/styles/custom.scss';
 
-.select-wrapper {
+.date-wrapper {
     @include flexCol( flex-start, flex-start )
 }
 
-.select-cmp {
+.date-cmp {
     @include flexRow( flex-start, center );
     @include font2( 12px );
     height: 30px;
     min-width: 100px;
-    width: calc( 15px * v-bind( selectSize ));
+    width: calc( 15px * v-bind( dateSize ));
     padding: 0px 10px;
     margin: 0px 4px;
     border: $main-border1;
@@ -81,11 +81,11 @@ import { ref, computed } from 'vue'
 
     &-options {
         @include flexCol( flex-start, flex-start );
-        overflow-y: auto;
+        overflow-y: scroll;
         max-height: 300px;
         z-index: 20;
         min-width: 120px;
-        width: calc( 15px * v-bind( selectSize ) );
+        width: calc( 15px * v-bind( dateSize ) );
         margin: 2px 4px;
         border: $main-border1;
         border-radius: $main-border-radius;
