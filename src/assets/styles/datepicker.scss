@@ -1,0 +1,109 @@
+.datepicker {
+  height: 320px;
+  width: 310px;
+  background: $main-white;
+  border: $main-border1;
+  border-radius: $main-border-radius;
+  padding: 20px;
+
+  &-header {
+    margin-bottom: 10px;
+
+    &-info {
+      @include font2( 14px );
+      color: $main-op-text;
+
+      &:not(&--non-clickable):hover {
+        color: $main-color;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  &-body {
+    height: 242px;
+    width: 270px;
+
+    &--years, &--months {
+      @include flexRow( center, space-between );
+      flex-wrap: wrap;
+      @include font2( 14px );
+      color: $main-color;
+    }
+
+    &--days {
+      @include font2( 14px );
+      color: $main-color;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+  }
+  
+  &-days-of-week {
+    @include flexRow( space-between, space-between );
+    padding-bottom: 5px;
+    border-bottom: $main-border1;
+  }
+
+  &-day-of-week {
+    @include flexRow( center, center );
+    width: 30px;
+    height: 30px;
+  }
+
+  &-days-wrapper {
+    @include flexRow( space-between, space-between );
+    flex-wrap: wrap;
+    margin-top: 5px;
+    height: calc(100% - 41px);
+  }
+
+  &-year, &-month {
+    width: 80px;
+    height: 50px;
+    margin-right: 15px;
+
+    &:nth-child(3n), &:last-child {
+      margin-right: 0px; 
+    }
+  }
+  
+  &-day {
+    width: 30px;
+    height: 30px;
+
+    &--thin {
+      color: $main-thin;
+    }
+
+    & {
+      margin-right: 10px;
+    }
+
+    &:nth-child(7n) {
+      margin-right: 0px;
+    }
+  }
+
+  &-year, &-month,  &-day {
+    @include flexRow( center, center );
+    @include font2( 12px );
+    cursor: pointer;
+
+    &--selected {
+      color: $main-white;
+      background: $main-color;
+      border-radius: $main-border-radius;
+
+      &:hover {
+        color: $main-white;
+      }
+  
+    }
+
+    &:hover {
+      border: $main-border1;
+      border-radius: $main-border-radius;
+    }
+  }
+}  

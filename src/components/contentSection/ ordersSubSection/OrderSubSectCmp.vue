@@ -2,7 +2,7 @@
     <div class="order">
         <div class="order-header-sort">
             <span class="order-header-sort-text">
-                Локация : {{ city }}
+                Локация : {{ location ? location : 'Все гoрoда' }}
             </span>
             <div class="order-header-sort-select">
                 <select-cmp 
@@ -23,10 +23,12 @@
 
 <script lang="ts">
 import { ref, reactive, computed } from 'vue'
+import { useStore } from 'vuex'
 
 import SelectCmp from '@/components/UI/SelectCmp.vue'
 import OrderCmp from '@/components/UI/OrderCmp.vue'
 import { selectDataSort } from '@/assets/static/orderSubSelect'
+import { deepClone } from '@/assets/utils/utils'
 import { mockOrdersData } from '@/assets/mockData/mockOrders'
 
 import { selectSearch } from '@/assets/utils/orderSelectFilter'
@@ -38,19 +40,24 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
         },
 
         setup() {
+            const store = useStore()
+            
             let city = ref<string>( 'Ялта' )
             const tmpVal = ref( '' )
             const emitSelectValue = ( data: string ): void => {
                 tmpVal.value = data
             }
 
-            let currentOrdersData = computed(() => selectSearch( mockOrdersData, tmpVal.value ) )
+            let currentOrdersData = computed(() => {
+                return selectSearch( deepClone( store.getters.getAllOrders ), tmpVal.value )
+            } )
 
             return {
                 city,
                 selectDataSort,
                 mockOrdersData,
                 currentOrdersData,
+                location: computed(() => store.getters.getLocation ),
                 emitSelectValue
             }
         }
@@ -68,9 +75,9 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
 
     &-header-sort {
         @include flexRow( space-between, flex-start );
-        max-height: 32px;
+        max-height: 30px;
         width: 98%;
-        margin-top: 6px;
+        margin-top: 10px;
 
         &-text {
             @include flexRow( flex-start, center );

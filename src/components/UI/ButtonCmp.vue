@@ -1,14 +1,14 @@
 <template>
     <button :class="[ loading ? 'load-class' : 'button-cmp' ]" 
         type="button"
-        @click="load" >
-        {{ btnNameText }}
+        @click="clickHandler" >
+        {{ loading ? '' : btnName }}
         <spinner-cmp v-if="loading" />
     </button>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import SpinnerCmp from './SpinnerCmp.vue'
 
 export default {
@@ -24,22 +24,17 @@ export default {
     },
 
     setup( props: any, { emit }: any ) {
-        const btnNameText = ref( props.btnName )
         const buttonSize = ref( props.btnName.split('').length )
-        const loading = ref( props.loading )
+        const loading = computed(() => props.loading )
         
-        const load = (): void => {
+        const clickHandler = (): void => {
             emit( 'click-handler' )
-            // btnNameText.value = ''
-            // loading.value = true  
-
         }
 
         return {
             loading,
-            btnNameText,
             buttonSize,
-            load,
+            clickHandler,
         }
     }
 }
@@ -60,6 +55,7 @@ export default {
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
+    cursor: pointer;
 
     &:hover {
         border: $main-border1-hover;

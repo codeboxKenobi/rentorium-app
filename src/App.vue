@@ -27,6 +27,7 @@ import ContentSectCmp from './components/contentSection/ContentSectCmp.vue';
 
 <style lang="scss">
 @import '~/src/assets/styles/custom.scss';
+@import '~/src/assets/styles/datepicker.scss';
 @import '~/src/assets/styles/main.css';
 
 #app {
