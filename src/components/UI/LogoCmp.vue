@@ -2,9 +2,8 @@
     <a class="logo-ref" href="/">
         <div class="logo">
             <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
-            <span class="logo-text">rent</span>
+            <span class="logo-text">рент</span>
             <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
-            <span class="logo-text"></span>
         </div>
     </a>
 </template>
@@ -34,8 +33,8 @@
     }
 
     &-mag-glass {
-        margin-top: 5px;
-        margin-left: 0px;
+        margin-top: 6px;
+        margin-left: 1px;
     }
 }
 </style>

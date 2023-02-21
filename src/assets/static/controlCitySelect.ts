@@ -3,7 +3,7 @@ export interface Select{
     fieldData: string[]
 }
 
-// Параметры фильтра и сортировки ордеров
+// Пoля фильтра ордеров пo гopoдам
 export const selectCitySort: Select = {
     name: 'Все гoрoда',
     fieldData: [

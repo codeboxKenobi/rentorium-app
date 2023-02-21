@@ -9,7 +9,11 @@
             @click="clickHandler"
         >
     </div>
-    <div class="account-menu" v-if="accountMenu" ref="target" on-click-outside="closeMenu">
+    <div class="account-menu" 
+        v-if="accountMenu"
+        ref="target"
+        on-click-outside="closeMenu"
+    >
         <span class="account-menu-item"
             v-for="( field, fieldIndex) in menuFieldData" 
             :key="fieldIndex"
