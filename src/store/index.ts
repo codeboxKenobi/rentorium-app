@@ -6,7 +6,11 @@ export default createStore({
   state: {
     mockOrders: mockOrdersData,
     mockOrdersClone: mockOrdersData,
-    location: ''
+    location: '',
+    selectDate: {
+      from: '',
+      to: ''
+    }
   },
 
   getters: {
@@ -16,6 +20,10 @@ export default createStore({
 
     getLocation: ( state ) => {
       return state.location
+    },
+
+    getSelectedDayPeriod: ( state ) => {
+      return state.selectDate
     } 
   },
 
@@ -30,7 +38,15 @@ export default createStore({
 
     setLocation: ( state, payload ) => {
       state.location = payload
-    } 
+    },
+
+    setDayFrom: ( state, payload ) => {
+      state.selectDate.from = payload
+    },
+
+    setDayTo: ( state, payload ) => {
+      state.selectDate.to = payload
+    }
   },
 
   actions: {

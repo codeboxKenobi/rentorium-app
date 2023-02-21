@@ -19,13 +19,14 @@
 .logo-ref {
     @include flexRow( center, center );
     height: 100%;
-    max-width: 180px;
-    text-decoration: none
+    width: auto;
+    // max-width: 180px;
+    text-decoration: none;
 }
 .logo {
     @include flexRow( center, center );
     height: 100%;
-    width: 180px;
+    width: 120px;
 
     &-text {
         @include font2( 16px );

@@ -4,7 +4,7 @@
             @click="bSelectedField" >
             <span>{{ currentSelectName }}</span>
         </div>
-        <div class="select-cmp-options" v-if="selectField">
+        <div class="select-cmp-options" v-if="selectField" ref="target" on-click-outside="closeOption">
             <span class="select-cmp-options-field"
                 v-for="( field, fieldIndex ) in Object.entries( selectFieldItem )" 
                     :key="fieldIndex"
@@ -17,6 +17,7 @@
 
 <script lang="ts"> 
 import { ref, computed } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
     export default {
         props: {
@@ -36,6 +37,12 @@ import { ref, computed } from 'vue'
                 selectField.value = !selectField.value
             }
 
+            const closeOption = (): void => {
+                selectField.value = false
+            }
+            const target = ref(null)
+            onClickOutside( target, (event) => closeOption())
+
             const selectFieldElem = ( fieldName: string, fieldKey: string ): void => {
                 currentSelectName.value = fieldName
                 emit( 'emit-select-value', fieldKey, fieldName )
@@ -46,6 +53,7 @@ import { ref, computed } from 'vue'
                 selectSize,
                 selectField,
                 currentSelectName,
+                target,
                 bSelectedField,
                 selectFieldElem
             }

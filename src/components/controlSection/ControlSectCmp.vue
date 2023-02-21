@@ -2,11 +2,17 @@
     <div class="control">
         <div class="control-city-section">
             <select-cmp :selectName="selectCitySort.name" 
-                    :selectFieldItem="selectCitySort.fieldData"
-                    @emit-select-value="emitSelectValue" />
+                :selectFieldItem="selectCitySort.fieldData"
+                @emit-select-value="emitSelectValue" />
         </div>
-        <div class="control-period-section"></div>
-        <div class="control-map-section"></div>
+
+        <div class="control-period-section">
+
+        </div>
+
+        <div class="control-map-section">
+        
+        </div>
     </div>
 </template>
 
@@ -31,6 +37,7 @@ import SelectCmp from '../UI/SelectCmp.vue';
                 store.commit( 'resetAllOrders' )
                 const sortedCityOrders = citySelectFilter( deepClone( store.getters.getAllOrders ), data )
                 store.commit( 'setAllOrders', sortedCityOrders )
+                store.commit( 'setLocation', data )
             }
 
             return {
@@ -54,20 +61,37 @@ import SelectCmp from '../UI/SelectCmp.vue';
 
     &-city-section {
         height: 30px;
-        width: calc( 100% / 3 - 20px );
-        // background-color: #c44848;
+        width: calc( 50% / 3 );
     }
 
     &-period-section {
         height: 30px;
-        width: calc( 100% / 3 - 20px );
-        background-color: #a8b486;
+        width: calc( 100% / 2.5 - 10px );
+        // background-color: #a8b486;
     }
 
     &-map-section {
         height: 30px;
-        width: calc( 100% / 3 - 20px );
-        background-color: #8696b4;
+        width: calc( 100% / 2.5 - 10px );
+        // background-color: #5d77a7;
+    }
+
+
+    @media screen and ( max-width: 1320px ) {
+        &-city-section {
+            height: 30px;
+            width: calc( 100% / 5 );
+        }
+    
+        &-period-section {
+            height: 30px;
+            width: calc( 100% / 2.5 - 10px );
+        }
+    
+        &-map-section {
+            height: 30px;
+            width: calc( 100% / 2.5 - 10px );
+        }
     }
 }
 </style>

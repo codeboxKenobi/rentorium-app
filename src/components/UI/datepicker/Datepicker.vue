@@ -4,7 +4,7 @@
       <div
         v-html="displayed"
         class="datepicker-header-info"
-        :class="selected==='years' ? 'datepicker-header-info--non-clickable' : ''"
+        :class="selected === 'years' ? 'datepicker-header-info--non-clickable' : ''"
         @click="changeDisplay"
       />
     </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
 
 import Months from "./Months.vue";
 import Years from "./Years.vue";
@@ -36,6 +37,7 @@ export default {
     Days
   },
   data: () => ({
+    store: useStore(),
     selected: "days",
 
     currentDate: new Date(),
@@ -71,6 +73,7 @@ export default {
       return `${year.slice(0, 3)}0 &#8211; ${year.slice(0, 3)}9`;
     }
   },
+
   methods: {
     selectYear( year ) {
       this.bufferDate.setFullYear(year);

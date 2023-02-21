@@ -2,7 +2,7 @@
     <div class="order">
         <div class="order-header-sort">
             <span class="order-header-sort-text">
-                Локация : {{ city }}
+                Локация : {{ location ? location : 'Все гoрoда' }}
             </span>
             <div class="order-header-sort-select">
                 <select-cmp 
@@ -57,6 +57,7 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
                 selectDataSort,
                 mockOrdersData,
                 currentOrdersData,
+                location: computed(() => store.getters.getLocation ),
                 emitSelectValue
             }
         }
