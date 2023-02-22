@@ -1,17 +1,18 @@
 <template>
     <div class="map">
-        <datepicker />
+        <!-- <datepicker /> -->
+        <date-period-cmp />
     </div>
 </template>
 
 <script lang="ts">
-import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
-
+// import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
+import DatePeriodCmp from '@/components/UI/DatePeriodCmp.vue';
     export default {
         components: {
-            Datepicker
+            // Datepicker,
+            DatePeriodCmp
         }
-        
     }
 </script>
 
@@ -19,10 +20,10 @@ import Datepicker from '@/components/UI/datepicker/Datepicker.vue'
 @import '~/src/assets/styles/custom.scss';
 
 .map {
-    @include flexRow( center, center );
+    @include flexCol( flex-start, center );
     height: 98%;
     width: 39%;
     margin-top: 4px;
-    border: $main-border1;
+    // border: $main-border1;
 }
 </style>

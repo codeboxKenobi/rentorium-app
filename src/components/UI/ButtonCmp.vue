@@ -24,8 +24,8 @@ export default {
     },
 
     setup( props: any, { emit }: any ) {
-        const buttonSize = ref( props.btnName.split('').length )
         const loading = computed(() => props.loading )
+        const buttonSize = ref( props.btnName.split('').length )
         
         const clickHandler = (): void => {
             emit( 'click-handler' )

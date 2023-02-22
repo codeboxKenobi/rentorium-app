@@ -56,7 +56,7 @@ import SelectCmp from '../UI/SelectCmp.vue';
     height: 45px;
     width: 100%;
     margin-top: 4px;
-    padding: 0px 15px 0px 18px;
+    padding: 0px 10px ;
     border-bottom: $main-border1;
 
     &-city-section {

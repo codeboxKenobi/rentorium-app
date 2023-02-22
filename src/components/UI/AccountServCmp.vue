@@ -35,6 +35,9 @@ import { menuFieldData } from '@/assets/static/accountMenu'
 
         setup( props: any, { emit }: any ) {
             const accountMenu = ref( false )
+            const target = ref(null)
+
+            onClickOutside( target, (event) => closeMenu())
 
             const clickHandler = (): void => {
                 accountMenu.value = !accountMenu.value
@@ -44,11 +47,8 @@ import { menuFieldData } from '@/assets/static/accountMenu'
             const closeMenu = (): void => {
                 accountMenu.value = false
             }
-            const target = ref(null)
-            onClickOutside( target, (event) => closeMenu())
-
+            
             const menuItemHandler = ( data: string ): void => {
-                console.log( data );
                 emit( 'menu-item-handler', data  )
                 closeMenu()
             }
@@ -58,8 +58,8 @@ import { menuFieldData } from '@/assets/static/accountMenu'
                 target,
                 menuFieldData,
                 clickHandler,
+                closeMenu,
                 menuItemHandler,
-                closeMenu
             }
         }
     }
@@ -83,6 +83,10 @@ import { menuFieldData } from '@/assets/static/accountMenu'
         color: $main-white;
         border: $main-border1;
         border-radius: $main-border-radius;
+
+        @media screen and ( max-width: 440px ) {
+            display: none;
+        }
     }
 }
 

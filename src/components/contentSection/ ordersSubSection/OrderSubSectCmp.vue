@@ -70,8 +70,8 @@ import { selectSearch } from '@/assets/utils/orderSelectFilter'
 .order {
     @include flexCol( flex-start, center );
     height: 100%;
-    width: 59%;
-    margin-right: 10px;
+    width: 100%;
+    margin: 10px;
 
     &-header-sort {
         @include flexRow( space-between, flex-start );

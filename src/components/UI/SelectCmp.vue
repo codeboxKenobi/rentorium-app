@@ -80,7 +80,6 @@ import { onClickOutside } from '@vueuse/core'
     border-radius: $main-border-radius;
     outline: none;
     color: $main-color;
-    // background-color: $main-white;
     cursor: pointer;
 
     &:hover {
