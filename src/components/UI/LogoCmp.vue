@@ -2,8 +2,8 @@
     <a class="logo-ref" href="/">
         <div class="logo">
             <img class="logo-home" src="@/assets/img/home-logo.svg" alt="">
-            <span class="logo-text">рент</span>
-            <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt="">
+            <span class="logo-text">Рентo</span>
+            <!-- <img class="logo-mag-glass" src="@/assets/img/mag-glass.svg" alt=""> -->
         </div>
     </a>
 </template>
@@ -25,16 +25,22 @@
 .logo {
     @include flexRow( center, center );
     height: 100%;
-    width: 120px;
+    // width: 120px;
+    margin-left: 15px;
 
     &-text {
-        @include font2( 16px );
+        @include flexRow( center, flex-end );
+        @include font2( 1.1rem );
         color: $main-white;
+        font-weight: bold;
+        letter-spacing: 0.1rem;
+        margin: 6px 1px 0px 1px;
     }
 
     &-mag-glass {
-        margin-top: 6px;
-        margin-left: 1px;
+        @include flexRow( center, flex-end );
+        margin-top: 12px; 
+        // margin-left: 1px;
     }
 }
 </style>
